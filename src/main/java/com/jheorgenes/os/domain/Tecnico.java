@@ -7,10 +7,13 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
-public class Tecnico extends Pessoa implements Serializable{
+public class Tecnico extends Pessoa implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
+	@JsonIgnore //Define que esse atributo em formato de lista será ignorado ao buscar a requisição dessa classe
 	@OneToMany(mappedBy = "tecnico")
 	private List<OS> list = new ArrayList<>();
 

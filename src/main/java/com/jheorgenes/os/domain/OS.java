@@ -1,5 +1,6 @@
 package com.jheorgenes.os.domain;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
@@ -15,7 +16,8 @@ import com.jheorgenes.os.domain.enuns.Prioridade;
 import com.jheorgenes.os.domain.enuns.Status;
 
 @Entity
-public class OS {
+public class OS implements Serializable {
+	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.jheorgenes.os.domain.Pessoa;
 import com.jheorgenes.os.domain.Tecnico;
 import com.jheorgenes.os.dtos.TecnicoDTO;
+
 import com.jheorgenes.os.repositories.PessoaRepository;
 import com.jheorgenes.os.repositories.TecnicoRepository;
 import com.jheorgenes.os.services.exceptions.DataIntegratyViolationException;
@@ -70,11 +71,10 @@ public class TecnicoService {
 	/* Método para validar se o CPF do argumento é igual a algum cpf do banco de dados */
 	private Pessoa findByCPF(TecnicoDTO objDTO) {
 		Pessoa obj = pessoaRepository.findByCPF(objDTO.getCpf());
+
 		if(obj != null) { //Se houver um objeto com o cpf cadastrado, retorna o objeto
 			return obj;
 		}
 		return null; //Senão retorna null
 	}
-
-	
 }
